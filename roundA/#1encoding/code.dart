@@ -1,5 +1,7 @@
 import 'dart:io';
 
+import '../../shared.dart';
+
 void main() {
   int t, n;
   t = readInt();
@@ -25,24 +27,4 @@ void main() {
     }
     print("Case #${i + 1}: ${!result ? 'YES' : 'NO'}");
   }
-}
-
-int readInt() {
-  try {
-    return int.parse(stdin.readLineSync()!);
-  } catch (e) {
-    print(e);
-    rethrow;
-  }
-}
-
-int encode(String str, List<int> encodeList) {
-  List<int> strCodeUnits = str.codeUnits.map((e) => e - 65).toList();
-  int result = 0;
-  int position = 1;
-  strCodeUnits.forEach((c) {
-    result += encodeList[c] * position;
-    position *= 10;
-  });
-  return result;
 }
